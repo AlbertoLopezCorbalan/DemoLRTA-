@@ -373,7 +373,7 @@ public class ActuadorParte2 : MonoBehaviour
 
         if (numPuntos == 1) return listaPuntos[0];
 
-        //inicializamos el objetivo
+        //inicializamos el target
         GameObject masCercano = listaPuntos[0];
         GameObject objetivo = listaPuntos[1];
         float distMaxima = (listaPuntos[0].transform.position - this.transform.position).magnitude;

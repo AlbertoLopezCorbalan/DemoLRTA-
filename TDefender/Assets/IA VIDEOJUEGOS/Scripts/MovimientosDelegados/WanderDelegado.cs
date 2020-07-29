@@ -53,7 +53,7 @@ public class WanderDelegado : Face
 
     }
 
-    private void OnDrawGizmos() // Gizmo: una línea en la dirección del objetivo
+    private void OnDrawGizmos() // Gizmo: una línea en la dirección del target
     {
         Vector3 from = transform.position; // Origen de la línea
 

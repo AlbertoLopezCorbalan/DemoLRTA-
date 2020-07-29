@@ -30,7 +30,7 @@ public class Actuator : MonoBehaviour
         Steering.Movement actualMovement = GetComponent<Steering>().getSteering(target, this.gameObject, maxVelocity, maxAceleration, maxAngularVelocity, maxAcelerationVelocity, orientation, velocity);
 
 
-        if (actualMovement.Linealsteering == Vector3.zero) // If we recieve Vector3.Zero movement is signal that we are in the objetivo already, we should decelerate
+        if (actualMovement.Linealsteering == Vector3.zero) // If we recieve Vector3.Zero movement is signal that we are in the target already, we should decelerate
         {
             velocity = velocity - velocity * Time.deltaTime; 
         }

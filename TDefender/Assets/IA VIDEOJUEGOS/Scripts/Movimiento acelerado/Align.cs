@@ -6,7 +6,7 @@ using UnityEngine;
 public class Align : SteeringAcelerado
 {
     Vector3 velocidad;
-    Vector3 PQ; // Vector direccion entre el personaje y el objetivo
+    Vector3 PQ; // Vector direccion entre el personaje y el target
     float rotacion;
     float rotationSize;
 
@@ -74,7 +74,7 @@ public class Align : SteeringAcelerado
 
 
 
-    private void OnDrawGizmos() // Gizmo: una línea en la dirección del objetivo
+    private void OnDrawGizmos() // Gizmo: una línea en la dirección del target
     {
         Vector3 from = transform.position; // Origen de la línea
      

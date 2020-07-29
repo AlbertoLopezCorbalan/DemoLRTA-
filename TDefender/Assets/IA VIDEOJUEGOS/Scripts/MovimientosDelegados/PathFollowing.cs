@@ -38,7 +38,7 @@ public class PathFollowing : SeekAcelerado
         if (numPuntos == 1) return base.getSteering(listaPuntos[0], personaje, maxVelocidad, maxAceleracion, maxVelAngular, maxAceleracionAngular, orientacion, velocidad);
 
         
-        //inicializamos el objetivo
+        //inicializamos el target
         GameObject masCercano = listaPuntos[0];
         GameObject objetivo = listaPuntos[1];
         float distMaxima = (listaPuntos[0].transform.position - personaje.transform.position).magnitude;

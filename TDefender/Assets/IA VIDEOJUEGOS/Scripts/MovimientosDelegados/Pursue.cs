@@ -5,15 +5,15 @@ using UnityEngine;
 public class Pursue : SeekAcelerado
 {
 
-    Vector3 direccion; // Vector direccion entre el personaje y el objetivo
+    Vector3 direccion; // Vector direccion entre el personaje y el target
     float distancia;
     float speed; //Nuestra velocidad escalar
 
-    float prediccion; //Tiempo en el que tardaríamos en alcanzar al objetivo
+    float prediccion; //Tiempo en el que tardaríamos en alcanzar al target
     GameObject pseudoObjetivo; //Nuevo target imaginario, que describe la posición donde predecimos que estará el target original.
 
     [SerializeField]
-    float maxPrediccion = 0.5f; //Tiempo maximo de predicción para alcanzar al objetivo
+    float maxPrediccion = 0.5f; //Tiempo maximo de predicción para alcanzar al target
 
     override
     public MovimientoAcelerado getSteering(GameObject target, GameObject personaje, float maxVelocidad, float maxAceleracion, float maxVelAngular, float maxAceleracionAngular, float orientacion, Vector3 velocidad)
@@ -22,7 +22,7 @@ public class Pursue : SeekAcelerado
 
         // Se calcula el vector posicion destino
         direccion = target.transform.position - personaje.transform.position;
-        distancia = direccion.magnitude; //Modulo de la direccion entre el personaje y el objetivo
+        distancia = direccion.magnitude; //Modulo de la direccion entre el personaje y el target
 
         speed = velocidad.magnitude;
 

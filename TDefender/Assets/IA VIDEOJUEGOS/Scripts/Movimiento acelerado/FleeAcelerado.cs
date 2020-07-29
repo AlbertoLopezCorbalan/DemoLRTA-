@@ -5,7 +5,7 @@ using UnityEngine;
 public class FleeAcelerado : SteeringAcelerado
 {
     Vector3 velocidad;
-    Vector3 PQ; // Vector direccion entre el personaje y el objetivo
+    Vector3 PQ; // Vector direccion entre el personaje y el target
 
     override
     public MovimientoAcelerado getSteering(GameObject target, GameObject personaje, float maxVelocidad, float maxAceleracion, float maxVelAngular, float maxAceleracionAngular, float orientacion, Vector3 velocidad)

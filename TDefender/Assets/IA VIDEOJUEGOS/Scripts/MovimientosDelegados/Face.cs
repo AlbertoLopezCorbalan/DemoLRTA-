@@ -5,7 +5,7 @@ using UnityEngine;
 public class Face : Align
 {
 
-    protected Vector3 direccion; // Vector direccion entre el personaje y el objetivo
+    protected Vector3 direccion; // Vector direccion entre el personaje y el target
     protected float distancia;
 
     private GameObject pseudoObjetivo; //Nuevo target imaginario, que describe la posición donde predecimos que estará el target original.
@@ -25,7 +25,7 @@ public class Face : Align
 
         // Se calcula el vector posicion destino
         direccion = target.transform.position - personaje.transform.position;
-        distancia = direccion.magnitude; //Modulo de la direccion entre el personaje y el objetivo
+        distancia = direccion.magnitude; //Modulo de la direccion entre el personaje y el target
 
         if(distancia == 0) return base.getSteering(target, personaje, maxVelocidad, maxAceleracion, maxVelAngular, maxAceleracionAngular, orientacion, velocidad);
 

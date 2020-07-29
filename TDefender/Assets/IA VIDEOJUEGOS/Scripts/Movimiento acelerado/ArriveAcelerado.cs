@@ -6,7 +6,7 @@ using UnityEngine;
 public class ArriveAcelerado : SteeringAcelerado
 {
     Vector3 velocidad;
-    Vector3 PQ; // Vector direccion entre el personaje y el objetivo
+    Vector3 PQ; // Vector direccion entre el personaje y el target
 
     [SerializeField]
     float targetRadius = 5;
@@ -54,7 +54,7 @@ public class ArriveAcelerado : SteeringAcelerado
 
     }
 
-    private void OnDrawGizmos() // Gizmo: una línea en la dirección del objetivo
+    private void OnDrawGizmos() // Gizmo: una línea en la dirección del target
     {
         Gizmos.color = Color.yellow;   // Slow Radius
         Gizmos.DrawWireSphere(transform.position, slowRadius);

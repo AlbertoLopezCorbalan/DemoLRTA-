@@ -73,7 +73,7 @@ public class GridFollowing : MonoBehaviour
 
     }
 
-    private void OnDrawGizmos() // Gizmo: una línea en la dirección del objetivo
+    private void OnDrawGizmos() // Gizmo: una línea en la dirección del target
     {
 
 
