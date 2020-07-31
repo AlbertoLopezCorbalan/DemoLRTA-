@@ -11,7 +11,7 @@ public class enemigo : MonoBehaviour
 
     [SerializeField]
     GameObject punto1, punto2, punto3; //3 objetos intermedios hacia los que irá, cuando llegue a uno va a por el siguiente
-                                       //Para poder crear una ruta
+                                       //Para poder crear una path
 
 
     [SerializeField]
@@ -29,7 +29,7 @@ public class enemigo : MonoBehaviour
     void Start()
     {
         //this.transform.position = spawn.position;
-        haciaJugador = false; //Booleanos que indican si han llegado a los puntos de ruta
+        haciaJugador = false; //Booleanos que indican si han llegado a los puntos de path
 
         var seed = Environment.TickCount;
         var random = new Random(seed);      

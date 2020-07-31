@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallAvoidanceSoloMuros : SeekAcelerado
 {
-    //GameObject que contiene todos los puntos de la ruta a seguir
+    //GameObject que contiene todos los puntos de la path a seguir
     [SerializeField]
     float avoidDistance = 2; // Distancia mínima al muro (radio del personaje y un poco de margen)
 

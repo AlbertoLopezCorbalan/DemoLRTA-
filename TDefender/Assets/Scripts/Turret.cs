@@ -7,7 +7,13 @@ public class Turret : MonoBehaviour
 {
     private Transform target;
     public GameObject bulletPrefab;
-    public Transform firePoint;
+
+    [SerializeField]
+    GameObject firePoints = null;
+
+    [SerializeField]
+    GameObject upperBody = null;
+
 
     public float range = 30f;
     public float turnVelocity = 10f;
@@ -55,6 +61,16 @@ public class Turret : MonoBehaviour
         Vector3 direccion = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(direccion);
         Vector3 rotacion = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * turnVelocity).eulerAngles;
+
+        // Put the cannon looking at the target (mobile part)
+
+        if (upperBody != null)
+        {
+            upperBody.transform.LookAt(target);
+            upperBody.transform.Rotate(Vector3.right, -90); // Transform.rotation is (-90,0,0), we need to correct from the GameObject Parent, remove if the rotation is 0,0,0
+        }
+
+
         // Euler -> between -360 and 360
         this.transform.rotation = Quaternion.Euler(0f, rotacion.y, 0f);
         
@@ -69,19 +85,32 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        GameObject shooting = Instantiate(bulletPrefab, firePoint.transform.position, firePoint.rotation);
 
-        shooting.transform.forward = transform.forward;
-        Rigidbody ob_rigidb = shooting.GetComponent<Rigidbody>();
-        ob_rigidb.velocity = transform.forward * 50;
+        //We shoot from each Fire Point
+        if (firePoints != null)
+        {
+            int numFirePoints = firePoints.transform.childCount;
+            for (int i = 0; i < numFirePoints; i++)
+            {
+                GameObject firePoint = firePoints.transform.GetChild(i).gameObject;
 
-        
+
+                GameObject shooting = Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation);
+                shooting.hideFlags = HideFlags.HideInHierarchy;         
+                shooting.transform.forward = target.position - firePoint.transform.position;
+                Rigidbody ob_rigidb = shooting.GetComponent<Rigidbody>();
+                ob_rigidb.velocity = shooting.transform.forward * 50;
+
+
+            }
+        }
+       
     }
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, range);
-    }
+    //void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawSphere(transform.position, range);
+    //}
 
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PathFollowing : SeekAcelerado
 {
 
-    //GameObject que contiene todos los puntos de la ruta a seguir
+    //GameObject que contiene todos los puntos de la path a seguir
     [SerializeField]
     GameObject ruta = null;
 
