@@ -57,7 +57,8 @@ public class PathFollow : Seek
          new Movement
          {
              Linealsteering = steering.Linealsteering,
-             Angularsteering = 0,            
+             Angularsteering = Vector3.SignedAngle(this.transform.forward, characterVelocity.normalized, Vector3.up),
+             // To look where we are moving into
          };
     }
 

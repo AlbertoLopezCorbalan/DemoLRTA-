@@ -219,6 +219,7 @@
     <Compile Include="Assets\IA VIDEOJUEGOS\Scripts\Steering Grupal\Formacion.cs" />
     <Compile Include="Assets\IA VIDEOJUEGOS\Scripts\Steering Grupal\Separation.cs" />
     <Compile Include="Assets\IA VIDEOJUEGOS\Warrior Pack Bundle 2 FREE\EmptyRunAnimation.cs" />
+    <Compile Include="Assets\Imports\RobotSphere\Assets\Scripts\RobotFreeAnim.cs" />
     <Compile Include="Assets\Scripts\Actuator.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\PathFollow.cs" />

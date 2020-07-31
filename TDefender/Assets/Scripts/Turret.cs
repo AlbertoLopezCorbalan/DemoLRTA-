@@ -21,6 +21,8 @@ public class Turret : MonoBehaviour
     public float cadence = 1f;
     private float shootCount = 0f;
 
+    Quaternion desfase;
+
     void Start()
     {
         InvokeRepeating("UpdateObjetivo", 0f, 0.5f);
