@@ -16,13 +16,12 @@ public class Turret : MonoBehaviour
 
 
     public float range = 30f;
-    public float turnVelocity = 10f;
+    public float turnVelocity = 2f;
     
     public float cadence = 1f;
     private float shootCount = 0f;
 
-    Quaternion desfase;
-
+    
     void Start()
     {
         InvokeRepeating("UpdateObjetivo", 0f, 0.5f);
@@ -68,8 +67,8 @@ public class Turret : MonoBehaviour
 
         if (upperBody != null)
         {
-            upperBody.transform.LookAt(target);
-            upperBody.transform.Rotate(Vector3.right, -90); // Transform.rotation is (-90,0,0), we need to correct from the GameObject Parent, remove if the rotation is 0,0,0
+            Quaternion targetRotation = Quaternion.LookRotation(target.transform.position - upperBody.transform.position);
+            upperBody.transform.rotation = Quaternion.Lerp(upperBody.transform.rotation, targetRotation, Time.deltaTime * turnVelocity);
         }
 
 
@@ -108,11 +107,4 @@ public class Turret : MonoBehaviour
         }
        
     }
-
-    //void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawSphere(transform.position, range);
-    //}
-
 }
