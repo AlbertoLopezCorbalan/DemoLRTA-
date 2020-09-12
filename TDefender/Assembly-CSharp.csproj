@@ -260,6 +260,7 @@
     <None Include="Assets\FCV\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\FCV\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
     <None Include="Assets\FCV\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
+    <None Include="Assets\Imports\Sci-Fi Styled Modular Pack\Readme.txt" />
     <None Include="Assets\FCV\Standard Assets\Vehicles\Car\Shaders\DiffuseReflectiveShader.shader" />
     <None Include="Assets\IA VIDEOJUEGOS\read me.txt" />
     <None Include="Assets\FCV\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
