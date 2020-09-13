@@ -76,7 +76,7 @@ public class LRTAObstaculos : FleeAcelerado
         casillaObjetivo.transform.position = new Vector3(c.x, personaje.transform.position.y, c.y);
         return base.getSteering(casillaObjetivo, personaje, maxVelocidad, maxAceleracion, maxVelAngular, maxAceleracionAngular, orientacion, velocidad);
 
-        // En esta versión no actualizamos pesos, porque será usada junto a formaciones, es una manera de encontrar obstaculos cercanos mediante pathfinding e ir en contra de ellos.
+        // En esta versión no actualizamos pesos, porque será usada junto a formaciones, es una manera de encontrar obstruction cercanos mediante pathfinding e ir en contra de ellos.
 
     }
 
