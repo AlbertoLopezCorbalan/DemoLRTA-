@@ -19,7 +19,7 @@ public class Grid : MonoBehaviour
     private float offsetCoordenadasCasillasX, offsetCoordenadasCasillasZ; // Coordenadas mapa respecto el punto 00 de unity (transform.position)
 
 
-    private bool inicializado = false;
+
 
     public struct coordenada
     {
@@ -27,110 +27,59 @@ public class Grid : MonoBehaviour
         public float y;
     }
 
-    private void Start()
+    private void Awake()
     {
- 
-        /*sizeMapX = (int)Mathf.Round(this.transform.localScale.x / L);
-        sizeMapZ = (int)Mathf.Round(this.transform.localScale.z / L);
+
+        tamMapX = (int)Mathf.Round(this.transform.localScale.x / L);
+        tamMapZ = (int)Mathf.Round(this.transform.localScale.z / L);
 
         // Para map2grid
-        offsetGridX = sizeMapX / 2; // Offset para situar las casillas del mundo al grid y que coindan
-        offsetGridZ = sizeMapZ / 2;
+        offsetMapaX = tamMapX / 2; // Offset para situar las casillas del mundo al grid y que coindan
+        offsetMapaZ = tamMapZ / 2;
 
         // Para grid2map
-        offsetMapX = (this.transform.localScale.x / 2); // Offset para el eje de coordenadas esté entre -N y N, mientras que nuestro array sea 0-N*2
-        offsetMapZ = (this.transform.localScale.z / 2);
+        offsetCasillasX = (this.transform.localScale.x / 2); // Offset para el eje de coordenadas esté entre -N y N, mientras que nuestro array sea 0-N*2
+        offsetCasillasZ = (this.transform.localScale.z / 2);
 
-        offsetCoordinateMapX = this.transform.position.x; // Offset para acoplar el grid al suelo dentro del mundo
-        offsetCoordinateMapZ = this.transform.position.z;
-
-
-        offsetCoordinateGridX = this.transform.position.x / L;
-        offsetCoordinateGridZ = this.transform.position.z / L;
+        offsetCoordenadasMapaX = this.transform.position.x; // Offset para acoplar el grid al suelo dentro del mundo
+        offsetCoordenadasMapaZ = this.transform.position.z;
 
 
+        offsetCoordenadasCasillasX = this.transform.position.x / L;
+        offsetCoordenadasCasillasZ = this.transform.position.z / L;
 
-        map = new float[sizeMapX, sizeMapZ];
 
-        for (int i = 0; i < sizeMapX; i++)
-            for (int j = 0; j < sizeMapZ; j++)
+
+        map = new float[tamMapX, tamMapZ];
+
+        for (int i = 0; i < tamMapX; i++)
+            for (int j = 0; j < tamMapZ; j++)
                 map[i, j] = 0; //Inicializamos todas las casillas a este valor
 
 
 
         //Recorremos la lista de obstáculos para ponerlos en grid
-        if (obstruction != null)
+        if (obstaculos != null)
         {
-            int numPuntos = obstruction.transform.childCount;
+            int numPuntos = obstaculos.transform.childCount;
             for (int i = 0; i < numPuntos; i++)
             {
-                GameObject g = obstruction.transform.GetChild(i).gameObject;
+                GameObject g = obstaculos.transform.GetChild(i).gameObject;
                 coordenada c = map2grid(g.transform.position.x, g.transform.position.z);
-                if (0 <= c.x && c.x < sizeMapX && 0 <= c.y && c.y < sizeMapZ)
+                if (0 <= c.x && c.x < tamMapX && 0 <= c.y && c.y < tamMapZ)
                     //Esta dentro de los limites del array
                     map[(int)c.x, (int)c.y] = Mathf.Infinity; //Ponemos -1 a las casillas en las que haya un obstáculo
 
 
             }
-        }*/
+        }
 
     }
 
      public float[,] getMapClone() //Devolvemos una copia por valor del mapa
     {
 
-        if (!inicializado) // Inizialización perezosa, para asegurarlos que se devuelve cuando está todo inicializado
-        {
-            tamMapX = (int)Mathf.Round(this.transform.localScale.x / L);
-            tamMapZ = (int)Mathf.Round(this.transform.localScale.z / L);
-
-            // Para map2grid
-            offsetCasillasX = tamMapX / 2; // Offset para situar las casillas del mundo al grid y que coindan
-            offsetCasillasZ = tamMapZ / 2;
-
-            // Para grid2map
-            offsetMapaX = (this.transform.localScale.x / 2); // Offset para el eje de coordenadas esté entre -N y N, mientras que nuestro array sea 0-N*2
-            offsetMapaZ = (this.transform.localScale.z / 2);
-
-            offsetCoordenadasMapaX = this.transform.position.x; // Offset para acoplar el grid al suelo dentro del mundo
-            offsetCoordenadasMapaZ = this.transform.position.z;
-
-
-            offsetCoordenadasCasillasX = this.transform.position.x / L;
-            offsetCoordenadasCasillasZ = this.transform.position.z / L;
-
-
-
-            map = new float[tamMapX, tamMapZ];
-
-            for (int i = 0; i < tamMapX; i++)
-                for (int j = 0; j < tamMapZ; j++)
-                    map[i, j] = 0; //Inicializamos todas las casillas a este valor
-
-
-
-            //Recorremos la lista de obstáculos para ponerlos en grid
-            if (obstaculos != null)
-            {
-                int numPuntos = obstaculos.transform.childCount;
-                for (int i = 0; i < numPuntos; i++)
-                {
-                    GameObject g = obstaculos.transform.GetChild(i).gameObject;
-                    coordenada c = map2grid(g.transform.position.x, g.transform.position.z);
-                    if (0 <= c.x && c.x < tamMapX && 0 <= c.y && c.y < tamMapZ)
-                        //Esta dentro de los limites del array
-                        map[(int)c.x, (int)c.y] = Mathf.Infinity; //Ponemos -1 a las casillas en las que haya un obstáculo
-
-
-                }
-            }
-
-            inicializado = true;
-        }
-
-
-
-        float[,] mapAux = new float[tamMapX, tamMapZ];
+       float[,] mapAux = new float[tamMapX, tamMapZ];
         for (int i = 0; i < tamMapX; i++)
             for (int j = 0; j < tamMapZ; j++)
                 mapAux[i, j] = map[i,j]; //Inicializamos todas las casillas al valor de la original (que tiene en cuenta los obstruction)

@@ -114,10 +114,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 908, y: 442}
-  m_MaxSize: {x: 22003, y: 10021}
+  m_MinSize: {x: 910, y: 421}
+  m_MaxSize: {x: 22005, y: 10021}
   vertical: 0
-  controlID: 82
+  controlID: 8456
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,10 +139,10 @@ MonoBehaviour:
     y: 0
     width: 693
     height: 947
-  m_MinSize: {x: 201, y: 442}
-  m_MaxSize: {x: 4001, y: 8042}
+  m_MinSize: {x: 201, y: 421}
+  m_MaxSize: {x: 4001, y: 8021}
   vertical: 1
-  controlID: 57
+  controlID: 8461
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -162,8 +162,8 @@ MonoBehaviour:
     y: 0
     width: 693
     height: 486
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -401,9 +401,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -48.41967, y: -29.76818, z: -7.505062}
+    m_Target: {x: -9.020092, y: -9.012424, z: -2.2706375}
     speed: 2
-    m_Value: {x: -48.41967, y: -29.76818, z: -7.505062}
+    m_Value: {x: -9.020092, y: -9.012424, z: -2.2706375}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -449,13 +449,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.15827684, y: -0.67345494, z: 0.15095055, w: 0.70613664}
+    m_Target: {x: 0.28636816, y: -0.3274584, z: 0.10485708, w: 0.89429873}
     speed: 2
-    m_Value: {x: 0.1582762, y: -0.6734522, z: 0.15094994, w: 0.7061338}
+    m_Value: {x: 0.286368, y: -0.32745826, z: 0.10485703, w: 0.8942983}
   m_Size:
-    m_Target: 54.22101
+    m_Target: 16.167017
     speed: 2
-    m_Value: 51.88613
+    m_Value: 16.928814
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -509,9 +509,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d03a0000
-      m_LastClickedID: 15056
-      m_ExpandedIDs: 70fbffff
+      m_SelectedIDs: 643dffff
+      m_LastClickedID: -49820
+      m_ExpandedIDs: 18fefeffe03afffffe3affff643dffff6cf0ffff0af5ffff12f5ffff2ef5ffff7af5ffff9af5ffffb2f5ffffe2f6ffff00f7ffff4cf7ffff66f7ffff8ef7ffff70fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -574,20 +574,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/IA VIDEOJUEGOS/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/IA VIDEOJUEGOS/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Alberto\Desktop\TDefender\TDefender
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 8c480000
-    m_LastClickedID: 18572
-    m_ExpandedIDs: 00000000d0450000d2450000d4450000d6450000d8450000da450000dc45000000ca9a3b
+    m_SelectedIDs: b0470000
+    m_LastClickedID: 18352
+    m_ExpandedIDs: 00000000d0450000d2450000d4450000d6450000d8450000da4500009847000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -615,7 +615,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d0450000d2450000d4450000d6450000d8450000da450000dc450000
+    m_ExpandedIDs: 00000000d0450000d2450000d4450000d6450000d8450000da450000dc45000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
