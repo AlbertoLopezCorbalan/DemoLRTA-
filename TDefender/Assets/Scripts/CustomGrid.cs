@@ -110,7 +110,7 @@ public class CustomGrid : MonoBehaviour
 
 
 
-    public coordinate grid2map(float i, float j) //tranforma la casilla del array en valores del mapa de unity
+    public coordinate grid2map(float i, float j)
     {
         return new coordinate
         {
@@ -119,12 +119,12 @@ public class CustomGrid : MonoBehaviour
         };
     }
 
-    public coordinate map2grid(float i, float j) // ¿ A qué casilla del array corresponde una posición del mapa?
+    public coordinate map2grid(float i, float j)
     {
         return new coordinate
         {
-            x = Mathf.Round(i / L - offset.x),   //Al sumarle el offset nos situamos en la casilla correspondiente
-            y = Mathf.Round(j / L - offset.z)
+            x = Mathf.Round(i - offset.x) / L,
+            y = Mathf.Round(j - offset.z) / L
         };
 
     }
