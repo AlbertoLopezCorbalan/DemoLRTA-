@@ -59,7 +59,7 @@ public class PathFollow : Seek
 
         // This remove the points that we have already achieve
         if (LastcloserPoint == Vector3.zero ) LastcloserPoint = closerPoints; // Inicialize
-        else if (LastcloserPoint != closerPoints) { path.Remove(LastcloserPoint); LastcloserPoint = closerPoints; } 
+        else if (LastcloserPoint != closerPoints) { path.Remove(path[0]); LastcloserPoint = path[0]; }  // Remove path[0] because could skipp one point, and its from 0 to path.count.
 
 
         pseudoObject.transform.position = new Vector3(targetPoint.x, character.transform.position.y, targetPoint.z);

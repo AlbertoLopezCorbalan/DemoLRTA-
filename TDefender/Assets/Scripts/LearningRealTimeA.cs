@@ -51,6 +51,7 @@ public class LearningRealTimeA : PathFollow
 
                 }
         firstTime = false;
+        path.Clear();
     }
 
 
@@ -166,20 +167,12 @@ public class LearningRealTimeA : PathFollow
         {
             for (int i = 0; i + 1 < path.Count; i++)
             {
-                //CustomGrid.coordinate cor = new CustomGrid.coordinate { x = path[i].x, y = path[i].z };
-                //Gizmos.color = Color.green;
-
-                //Gizmos.DrawWireSphere(new Vector3(cor.x, this.transform.position.y + 0.01f, cor.y), 0.3f);
-
-
                 Gizmos.color = Color.green;
                 CustomGrid.coordinate cor = new CustomGrid.coordinate { x = path[i].x, y = path[i].z };
                 Vector3 from = new Vector3(cor.x, transform.position.y + 0.1f, cor.y);
                 CustomGrid.coordinate cor2 = new CustomGrid.coordinate { x = path[i+1].x, y = path[i+1].z };
                 Vector3 to = new Vector3(cor2.x, transform.position.y + 0.1f, cor2.y);
                 Gizmos.DrawLine(from, to);
-
-
             }
         }
     }
