@@ -194,7 +194,6 @@
     <Compile Include="Assets\IA VIDEOJUEGOS\Scripts\Grid.cs" />
     <Compile Include="Assets\IA VIDEOJUEGOS\Scripts\GridFollowing.cs" />
     <Compile Include="Assets\IA VIDEOJUEGOS\Scripts\LRTA.cs" />
-    <Compile Include="Assets\IA VIDEOJUEGOS\Scripts\LRTA2.cs" />
     <Compile Include="Assets\IA VIDEOJUEGOS\Scripts\LRTAObstaculos.cs" />
     <Compile Include="Assets\IA VIDEOJUEGOS\Scripts\Menu\CambiarEscena.cs" />
     <Compile Include="Assets\IA VIDEOJUEGOS\Scripts\Movimiento acelerado\Align.cs" />
@@ -223,6 +222,7 @@
     <Compile Include="Assets\Scripts\Actuator.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\CustomGrid.cs" />
+    <Compile Include="Assets\Scripts\LearningRealTimeA.cs" />
     <Compile Include="Assets\Scripts\PathFollow.cs" />
     <Compile Include="Assets\Scripts\Seek.cs" />
     <Compile Include="Assets\Scripts\Steering.cs" />

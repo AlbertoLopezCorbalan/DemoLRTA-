@@ -11,7 +11,7 @@ public class CustomGrid : MonoBehaviour
     [SerializeField]
     GameObject safe = null;
 
-    public const int SAFE = -1;
+    public const int SAFE = 1;
 
     [SerializeField]
     GameObject startPoint = null;
@@ -168,6 +168,7 @@ public class CustomGrid : MonoBehaviour
             Vector3 to = new Vector3(cor2.x, transform.position.y + 0.1f, cor2.y);
             Gizmos.DrawLine(from, to);
         }
+
     }
 
 }

@@ -37,7 +37,7 @@ public class movimientoPersonaje : MonoBehaviour
 
     CapsuleCollider m_Collider; // Referencia al collider del Game Object
     Rigidbody m_rigidBody;
-    bool m_isGrounded; // Boolean para ser seguro que tocamos el suelo
+    bool m_isGrounded; // Boolean para ser seguro que tocamos el floor
 
     Vector3 dir;
     Ray rayo;
@@ -73,7 +73,7 @@ public class movimientoPersonaje : MonoBehaviour
 
         m_Collider = GetComponent<CapsuleCollider>();
         m_rigidBody = GetComponent<Rigidbody>();
-        m_isGrounded = true; // Si empezamos tocando al suelo
+        m_isGrounded = true; // Si empezamos tocando al floor
         t = Time.time;
         Physics.IgnoreCollision(this.GetComponent<Collider>(), disparo.GetComponent<Collider>());
         ammoDisplay.text = balas.ToString() + "/" + cargador.ToString();
@@ -175,7 +175,7 @@ public class movimientoPersonaje : MonoBehaviour
     // Verificamos las colisiones
     void OnCollisionEnter(Collision other)
     {
-        // Hemos puesto un tag "Ground" sobre el suelo
+        // Hemos puesto un tag "Ground" sobre el floor
         if (other.gameObject.CompareTag("Ground"));
         m_isGrounded = true;
 

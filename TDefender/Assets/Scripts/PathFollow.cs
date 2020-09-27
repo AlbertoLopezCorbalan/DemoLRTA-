@@ -5,8 +5,11 @@ using UnityEngine;
 public class PathFollow : Seek
 {
     [SerializeField]
-    GameObject path = null;
+    protected List<Vector3> path = null;
 
+
+    Vector3 LastcloserPoint = Vector3.zero;
+    
 
     override
     public Movement getSteering(GameObject target, GameObject character, float maxVelocity, float maxAceleration, float maxAngularVelocity, float maxAcelerationVelocity, float orientation, Vector3 characterVelocity)
@@ -19,40 +22,50 @@ public class PathFollow : Seek
             Linealsteering = Vector3.zero,
         };
 
-        if (path == null) return noMove;
+        if (this.path == null) return noMove;
 
 
         // We extract each point in the path
-        List<GameObject> pointsList = new List<GameObject>(path.transform.childCount);
-        int numPoints = path.transform.childCount;
-        for (int i = 0; i < numPoints; i++)
-        {
-            GameObject g = path.transform.GetChild(i).gameObject;
-            pointsList.Insert(i, g);
-        }
+        int numPoints = path.Count; //
 
         if (numPoints == 0) return noMove;
-        if (numPoints == 1) return base.getSteering(pointsList[0], character, maxVelocity, maxAceleration, maxAngularVelocity, maxAcelerationVelocity, orientation, characterVelocity);
+
+
+        GameObject pseudoObject = new GameObject();
+        pseudoObject.name = "PathPoint";
+        pseudoObject.SetActive(false);
+        pseudoObject.hideFlags = HideFlags.HideInHierarchy;
+        pseudoObject.transform.position = new Vector3(path[0].x, character.transform.position.y, path[0].z);
+
+        if (numPoints == 1) return base.getSteering(pseudoObject, character, maxVelocity, maxAceleration, maxAngularVelocity, maxAcelerationVelocity, orientation, characterVelocity);
 
         
-        GameObject closerPoints = pointsList[0];
-        GameObject targetPoint = pointsList[1];
-        float maxDistance = (pointsList[0].transform.position - character.transform.position).magnitude;
+        Vector3 closerPoints = path[0];
+        Vector3 targetPoint = path[1];
+        float maxDistance = (path[0] - character.transform.position).magnitude;
         // Search for the closer point
         for (int i = 0; i < numPoints; i++)
         {
-            float dist = (pointsList[i].transform.position - character.transform.position).magnitude;
+            float dist = (path[i] - character.transform.position).magnitude;
             if (dist < maxDistance)
             {
                 maxDistance = dist;
-                closerPoints = pointsList[i];
-                targetPoint = pointsList[(i + 1) % numPoints];
+                closerPoints = path[i];
+                if (i + 1 < numPoints) targetPoint = path[(i + 1)];
+                else targetPoint = closerPoints;
             }
 
         }
 
+        // This remove the points that we have already achieve
+        if (LastcloserPoint == Vector3.zero ) LastcloserPoint = closerPoints; // Inicialize
+        else if (LastcloserPoint != closerPoints) { path.Remove(LastcloserPoint); LastcloserPoint = closerPoints; } 
+
+
+        pseudoObject.transform.position = new Vector3(targetPoint.x, character.transform.position.y, targetPoint.z);
+
         //Seek to targetPoint
-        Movement steering = base.getSteering(targetPoint, character, maxVelocity, maxAceleration, maxAngularVelocity, maxAcelerationVelocity, orientation, characterVelocity);
+        Movement steering = base.getSteering(pseudoObject, character, maxVelocity, maxAceleration, maxAngularVelocity, maxAcelerationVelocity, orientation, characterVelocity);
         return
          new Movement
          {

@@ -41,7 +41,7 @@ public class Grid : MonoBehaviour
         offsetCasillasX = (this.transform.localScale.x / 2); // Offset para el eje de coordenadas esté entre -N y N, mientras que nuestro array sea 0-N*2
         offsetCasillasZ = (this.transform.localScale.z / 2);
 
-        offsetCoordenadasMapaX = this.transform.position.x; // Offset para acoplar el grid al suelo dentro del mundo
+        offsetCoordenadasMapaX = this.transform.position.x; // Offset para acoplar el grid al floor dentro del mundo
         offsetCoordenadasMapaZ = this.transform.position.z;
 
 
